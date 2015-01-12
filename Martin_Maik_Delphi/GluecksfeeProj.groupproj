@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{74FF13F1-D6FB-493C-A4E7-DA8540933EE1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Gluecksfee.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GluecksfeeModel.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\GluecksfeeModelTests.dproj">
+            <Dependencies>GluecksfeeModel.dproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Gluecksfee">
+        <MSBuild Projects="Gluecksfee.dproj"/>
+    </Target>
+    <Target Name="Gluecksfee:Clean">
+        <MSBuild Projects="Gluecksfee.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gluecksfee:Make">
+        <MSBuild Projects="Gluecksfee.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GluecksfeeModel">
+        <MSBuild Projects="GluecksfeeModel.dproj"/>
+    </Target>
+    <Target Name="GluecksfeeModel:Clean">
+        <MSBuild Projects="GluecksfeeModel.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GluecksfeeModel:Make">
+        <MSBuild Projects="GluecksfeeModel.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GluecksfeeModelTests" DependsOnTargets="GluecksfeeModel">
+        <MSBuild Projects="Test\GluecksfeeModelTests.dproj"/>
+    </Target>
+    <Target Name="GluecksfeeModelTests:Clean" DependsOnTargets="GluecksfeeModel:Clean">
+        <MSBuild Projects="Test\GluecksfeeModelTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GluecksfeeModelTests:Make" DependsOnTargets="GluecksfeeModel:Make">
+        <MSBuild Projects="Test\GluecksfeeModelTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Gluecksfee;GluecksfeeModel;GluecksfeeModelTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Gluecksfee:Clean;GluecksfeeModel:Clean;GluecksfeeModelTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Gluecksfee:Make;GluecksfeeModel:Make;GluecksfeeModelTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
