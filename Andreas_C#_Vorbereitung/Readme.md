@@ -6,7 +6,7 @@ Die Lösung basiert auf der Idee, die Logik in verschiedene MVVM-Oberflächen wi
 Von daher wurde ein ViewModel mit der Logik implementiert und in eine Portable Class Library verpackt.
 
 Das folgende Diagramm zeigt einen groben Überblick der entworfenen Klassen 
-![](./DomainObjects.png)
+![](https://raw.githubusercontent.com/swkMagdeburg/2015-01-12_Gluecksfee/master/Andreas_C%23_Vorbereitung/DomainObjects.png)
 
 # Was noch fehlt
 
