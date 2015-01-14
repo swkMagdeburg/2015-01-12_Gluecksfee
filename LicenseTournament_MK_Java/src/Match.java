@@ -17,10 +17,10 @@ public class Match {
 	}
 
 	public String computeWinner() {
-		Random random = new Random();
-		boolean hasPlayer1Won = random.nextBoolean();
+		final Random random = new Random();
+		final boolean hasPlayer1Won = random.nextBoolean();
 
-		String winner;
+		final String winner;
 		if (hasPlayer1Won) {
 			winner = playerName1;
 		} else {
