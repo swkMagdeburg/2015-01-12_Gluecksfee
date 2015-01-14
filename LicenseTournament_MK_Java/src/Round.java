@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A round has many players and can compute the matches. A dummy player will be
@@ -14,15 +14,14 @@ public class Round {
 
 	static final String DUMMY = "Dummy Player";
 
-	private ArrayList<String> players;
+	private ArrayList<String> players = new ArrayList<>();
 	private boolean dummy_was_added = false;
 
 	private List<Match> matches = null;
 
-	public Round(String... players) {
+	public Round(Set<String> players) {
 
-		// TODO KL: Remove cast and fix UnsupportedOperationException
-		this.players = new ArrayList<String>(Arrays.asList(players));
+		this.players.addAll(players);
 
 		if (this.players.isEmpty()) {
 			throw new IllegalStateException("Number of players must not be 0");

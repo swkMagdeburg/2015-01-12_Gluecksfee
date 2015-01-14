@@ -2,10 +2,10 @@
 
 Java Code by Matthias Busch and Katharina Laube
 
-Written during the [Neujahrs-Hacking of Softwerkskammer Magdeburg @ SelectLine] 
+Written during and finished after the [Neujahrs-Hacking of Softwerkskammer Magdeburg @ SelectLine] 
 (https://www.softwerkskammer.org/activities/magdeburg_treffen_17)
 
-Runs with *JUnit 4.11* as testing framework.
+Compiles with Java 7 and uses *JUnit 4.11* as testing framework.
 
 **Business Requirements**
 
